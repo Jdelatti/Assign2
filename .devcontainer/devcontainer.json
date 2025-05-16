@@ -1,0 +1,43 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Python 3",
+	// "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+	"image": "mcr.microsoft.com/devcontainers/python",
+	"features": {
+		"ghcr.io/hspaans/devcontainer-features/pytest:1": {}
+		// "./non-root-user": {
+		// 	"username": "${localEnv:GITHUB_USER}",
+		// 	"userUid": "1999",
+		// 	"userGid": "1999"
+		// }
+	},
+
+	// Editor customizations
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"github.github-vscode-theme"
+			],
+			"settings": {
+				"files.exclude": {
+					"**/.*": true
+				},
+				"workbench.colorTheme": "GitHub Dark High Contrast"
+			}
+		}
+	},  
+
+	// Environment variables to set in the container.
+	"containerEnv": {
+		"TZ": "America/New_York",
+		// just for the scavenger hunt
+		"ENV1": "[98, 111, 98, 99, 97, 116]",
+		"ENV2": "[112, 101, 110, 103, 117, 105, 110]"
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "/bin/bash .devcontainer/post-create.sh",
+
+	// "remoteUser": "${localEnv:GITHUB_USER}"
+}
